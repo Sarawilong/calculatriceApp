@@ -1,0 +1,11 @@
+<div 
+  class="groupButtons"
+  *ngFor="let numGroup of numGroups"
+>
+  <ion-button 
+    class="buttons"
+    (click)="sendNumFn(number)"
+    *ngFor="let number of numGroup"
+  > {{ number }} </ion-button>
+</div>
+
