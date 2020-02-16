@@ -1,7 +1,4 @@
-import {
-  Component,
-  Output
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,30 +6,36 @@ import {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value: number;
+  value: any;
   num1 = '';
   num2 = '';
   symbol = '';
-  operation = '';
+  numGroups = [
+    [7, 8, 9],
+    [4, 5, 6],
+    [1, 2, 3],
+    [0],
+  ];
 
-  getChildOperators(event) {
+  pressOperatorsKeypad(event) {
     this.symbol = event;
-    this.operation += this.symbol;
-    console.log('operator:', event);
   }
 
-  getChildNumbers(event) {
+  pressNumericKeypad(event) {
+    const whitespaceRegex = /\s/g;
+
+    this.value = '';
     if (this.symbol === '') {
-      this.num1 += event.toString();
-      this.operation += this.num1;
-      console.log('num1:', this.num1);
+      this.num1 += event.target.innerHTML;
+      this.num1 = this.num1.replace(whitespaceRegex, '');
+
       return;
     }
 
     if (this.symbol !== '') {
-      this.num2 += event.toString();
-      this.operation += this.num2;
-      console.log('num2:', this.num2);
+      this.num2 += event.target.innerHTML;
+      this.num2 = this.num2.replace(whitespaceRegex, '');
+      console.log('inputValue:', this.num2);
       return;
     }
   }
@@ -62,11 +65,9 @@ export class HomePage {
         default:
           break;
       }
-
-      this.operation = this.value.toString();
     }
 
-    this.num1 = this.value.toString();
+    this.num1 = '';
     this.num2 = '';
     this.symbol = '';
   }
@@ -75,5 +76,6 @@ export class HomePage {
     this.num1 = '';
     this.num2 = '';
     this.symbol = '';
+    this.value = '';
   }
 }

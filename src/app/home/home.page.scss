@@ -1,61 +1,60 @@
-.box-size {
-  border: solid red;
-  padding: 0px 30vh;
-  
-  .calculatrice-container {
-    border: solid blue;
-    height: 50vh;
-  
-    .screen-result {
-      ul {
-        width: 50%;
-        border: 1px solid black;
-      
-        li {
-          background: none;
-          border: none;
-          display: inline-block;
-          width: 10%;
-      
-          input {
-            border: none;
+.window {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 
-            .value {
-              font-size: 30px;
-              text-align: right;
+  .title {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .result {
+    text-align: center;
+  }
+
+  .box-size {
+    width: 20vw;  
+
+    .calculatrice-container {
+      height: 50vh;
+  
+      #screen-result {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+
+        .displayOperation {
+          display: flex;
+          justify-content: center;
+        }
+      } 
+      
+      .keypad {
+        .keypad-touch {
+          display: flex;
+          justify-content: center;
+
+          .buttons, .symbol {
+            width: 50px;
+            height: 50px;
+          }
+
+          .numeric-keypad {
+            justify-content: center;
+    
+            .groupButtons {
+              display: flex;
             }
           }
+
+          .symbol-keypad {
+            height: 20vh;
+            width: 4vw;
+          }
         }
-      }
-    } 
-    
-    .keypad {
-      border: solid green;
-      width: 50vw;
-
-      .keypad-touch {
-        border: solid purple;
-        width: 17vw;
-        display: flex;
-      }
-
-
-      .numeric-keypad {
-        border: solid grey;
-        width: 21vw;
-        justify-content: center;
-        display: flex;
-      }
-
-      .symbol-keypad {
-        border: pink solid;
-        width: 8vw;
-      }
-
-      .result-keypad {
-        border: solid black;
       }
     }
   }
 }
+
 

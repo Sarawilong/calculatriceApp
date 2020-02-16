@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { NumbersComponent } from '../component/numbers/numbers.component';
+// import { NumbersComponent } from '../component/numbers/numbers.component';
 import { OperatorsComponent } from '../component/operators/operators.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { OperatorsComponent } from '../component/operators/operators.component';
   ],
   declarations: [
     HomePage,
-    NumbersComponent,
+    // NumbersComponent,
     OperatorsComponent,
   ]
 })

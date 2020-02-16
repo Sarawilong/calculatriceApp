@@ -1,56 +1,59 @@
-<div class="box-size">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>
-        Calculator
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div class="window">
+  <div class="box-size">
+    <ion-title class="title">
+      Calculator
+    </ion-title>
+    
+    <div class="calculatrice-container">
   
-  <div class="calculatrice-container">
-    <div class="screen-result">
-      <ul>
-        <li>
-          <input 
-            class="value"
-            [(ngModel)]="num1"
-          > 
-        </li>
-        <li>
-          <input 
-            class="value"
-            [(ngModel)]="symbol"
-          > 
-        </li>
-        <li>
-          <input 
-            class="value"
-            [(ngModel)]="num2"
-          > 
-        </li>
-      </ul>
-    </div>
-      
-    <div class="keypad">
-      <div class="keypad-touch">
-        <div class="numeric-keypad">
-          <app-numbers (sendNumbers) = "getChildNumbers($event)"></app-numbers>
+      <div id="screen-result">
+        <div class="displayOperation">
+          <div>
+            <p>{{ num1 }}</p>
+          </div>
+          <div>
+            <p>{{ symbol }}</p>
+          </div>
+          <div>
+            <p>{{ num2 }}</p>
+          </div>
         </div>
-        <div class="symbol-keypad">
-          <app-operators (sendOperators) = "getChildOperators($event)" ></app-operators>
+  
+        <div class="result">
+          <p>{{ value }}</p>
         </div>
       </div>
-      <div class="result-keypad">
-        <ion-button 
-          class="symbol"
-          (click)= "result()"
-        > = 
-        </ion-button>
-        <ion-button 
-          class="symbol"
-          (click)= "clear()"
-        > c 
-        </ion-button>
+        
+      <div class="keypad">
+        <div class="keypad-touch">
+          <div class="numeric-keypad">
+            <div 
+              class="groupButtons"
+              *ngFor="let numGroup of numGroups; let i = index"
+            >
+              <ion-button 
+                class="buttons"
+                (click)="pressNumericKeypad($event)"
+                *ngFor="let number of numGroup"
+              > {{ number }} </ion-button>
+              <div *ngIf="i === 3">
+                <ion-button 
+                  class="symbol"
+                  (click)= "clear()"
+                > c 
+                </ion-button>
+                <ion-button 
+                  class="symbol"
+                  (click)= "result()"
+                > = 
+                </ion-button>
+              </div>
+            </div>
+          </div>
+          <div class="symbol-keypad">
+            <app-operators (sendOperators) = "pressOperatorsKeypad($event)" ></app-operators>
+          </div>
+        </div>
       </div>
     </div>
   </div>
