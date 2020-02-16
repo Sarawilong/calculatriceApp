@@ -1,4 +1,7 @@
-import { Component, Output } from '@angular/core';
+import {
+  Component,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -40,22 +43,22 @@ export class HomePage {
         case '+':
           this.value = parseFloat(this.num1) + parseFloat(this.num2);
           break;
-  
+
         case '-':
           this.value = parseFloat(this.num1) - parseFloat(this.num2);
           console.log('-');
           break;
-  
+
         case '/':
           this.value = parseFloat(this.num1) / parseFloat(this.num2);
           console.log('/');
           break;
-  
+
         case 'x':
           this.value = parseFloat(this.num1) * parseFloat(this.num2);
           console.log('*');
           break;
-  
+
         default:
           break;
       }
