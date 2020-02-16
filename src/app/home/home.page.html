@@ -33,7 +33,7 @@
             >
               <ion-button 
                 class="buttons"
-                (click)="pressNumericKeypad($event)"
+                (click)="pressNumericKeypad(number)"
                 *ngFor="let number of numGroup"
               > {{ number }} </ion-button>
               <div *ngIf="i === 3">

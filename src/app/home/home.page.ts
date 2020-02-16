@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value: any;
+  value: number;
   num1 = '';
   num2 = '';
   symbol = '';
@@ -26,19 +26,15 @@ export class HomePage {
   }
 
   pressNumericKeypad(event) {
-    const whitespaceRegex = /\s/g;
-
-    this.value = '';
+    this.value = undefined;
     if (this.symbol === '') {
-      this.num1 += event.target.innerHTML;
-      this.num1 = this.num1.replace(whitespaceRegex, '');
+      this.num1 += event; 
 
       return;
     }
 
     if (this.symbol !== '') {
-      this.num2 += event.target.innerHTML;
-      this.num2 = this.num2.replace(whitespaceRegex, '');
+      this.num2 += event;
 
       return;
     }
@@ -77,6 +73,6 @@ export class HomePage {
     this.num1 = '';
     this.num2 = '';
     this.symbol = '';
-    this.value = '';
+    this.value = undefined;
   }
 }
