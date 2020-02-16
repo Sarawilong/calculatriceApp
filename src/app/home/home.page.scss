@@ -1,23 +1,60 @@
-.app-home {
-  height: 33vh;
-  border: aquamarine solid;
-}
-.value {
-  font-size: 30px;
-  text-align: right;
-}
+.box-size {
+  border: solid red;
+  padding: 0px 30vh;
+  
+  .calculatrice-container {
+    border: solid blue;
+    height: 50vh;
+  
+    .screen-result {
+      ul {
+        width: 50%;
+        border: 1px solid black;
+      
+        li {
+          background: none;
+          border: none;
+          display: inline-block;
+          width: 10%;
+      
+          input {
+            border: none;
 
-ul {
-  border: 1px solid black;
+            .value {
+              font-size: 30px;
+              text-align: right;
+            }
+          }
+        }
+      }
+    } 
+    
+    .keypad {
+      border: solid green;
+      width: 50vw;
 
-  li {
-    background: none;
-    border: none;
-    display: inline-block;
-    width: 0%;
+      .keypad-touch {
+        border: solid purple;
+        width: 17vw;
+        display: flex;
+      }
 
-    input {
-      border: none;
+
+      .numeric-keypad {
+        border: solid grey;
+        width: 21vw;
+        justify-content: center;
+        display: flex;
+      }
+
+      .symbol-keypad {
+        border: pink solid;
+        width: 8vw;
+      }
+
+      .result-keypad {
+        border: solid black;
+      }
     }
   }
 }

@@ -1,23 +1,38 @@
-import { Component, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+@Injectable({
+  providedIn: 'root'
 })
-export class HomePage {
+export class CalculateFunctionsService {
+
+  /**
+   * param number result
+   */
   value: number;
+
+  /**
+   * param string 
+   */
   num1 = '';
   num2 = '';
   symbol = '';
   operation = '';
 
+  /**
+   * Get operators from operators component
+   *
+   * @param event operators
+   */
   getChildOperators(event) {
     this.symbol = event;
     this.operation += this.symbol;
     console.log('operator:', event);
   }
 
+  /**
+   * Get numbers from numbers component
+   * @param event number
+   */
   getChildNumbers(event) {
     if (this.symbol === '') {
       this.num1 += event.toString();
@@ -34,28 +49,31 @@ export class HomePage {
     }
   }
 
-  result() {
+  /**
+   * Method used to get the result
+   */
+  getResult(num1, num2, value, symbol) {
     if (this.num1 !== '' && this.num2 !== '') {
       switch (this.symbol) {
         case '+':
           this.value = parseFloat(this.num1) + parseFloat(this.num2);
           break;
-  
+
         case '-':
           this.value = parseFloat(this.num1) - parseFloat(this.num2);
           console.log('-');
           break;
-  
+
         case '/':
           this.value = parseFloat(this.num1) / parseFloat(this.num2);
           console.log('/');
           break;
-  
+
         case 'x':
           this.value = parseFloat(this.num1) * parseFloat(this.num2);
           console.log('*');
           break;
-  
+
         default:
           break;
       }
@@ -68,6 +86,9 @@ export class HomePage {
     this.symbol = '';
   }
 
+  /**
+   * Method used to clear all
+   */
   clear() {
     this.num1 = '';
     this.num2 = '';

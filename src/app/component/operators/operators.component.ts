@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter
+} from '@angular/core';
+
+import { CalculateFunctionsService } from '../../services/calculate-functions.service';
 
 @Component({
   selector: 'app-operators',
@@ -15,7 +21,15 @@ export class OperatorsComponent {
     '*',
   ];
 
+  constructor(
+    private calculateFunctionsService: CalculateFunctionsService,
+  ) {}
+
   sendOperatorsFn(param) {
     this.sendOperators.emit(param);
   }
+
+  // getResult() {
+  //   this.calculateFunctionsService.getResult();
+  // }
 }
