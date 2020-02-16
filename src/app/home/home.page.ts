@@ -18,6 +18,10 @@ export class HomePage {
   ];
 
   pressOperatorsKeypad(event) {
+    if (this.num1 === '') {
+      return;
+    }
+
     this.symbol = event;
   }
 
