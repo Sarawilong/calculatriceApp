@@ -35,7 +35,7 @@ export class HomePage {
     if (this.symbol !== '') {
       this.num2 += event.target.innerHTML;
       this.num2 = this.num2.replace(whitespaceRegex, '');
-      console.log('inputValue:', this.num2);
+
       return;
     }
   }
@@ -49,17 +49,14 @@ export class HomePage {
 
         case '-':
           this.value = parseFloat(this.num1) - parseFloat(this.num2);
-          console.log('-');
           break;
 
         case '/':
           this.value = parseFloat(this.num1) / parseFloat(this.num2);
-          console.log('/');
           break;
 
         case 'x':
           this.value = parseFloat(this.num1) * parseFloat(this.num2);
-          console.log('*');
           break;
 
         default:
