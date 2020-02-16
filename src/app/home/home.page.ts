@@ -6,41 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  value: number;
   num1 = '';
   num2 = '';
-  symbol = '';
   numGroups = [
     [7, 8, 9],
     [4, 5, 6],
     [1, 2, 3],
     [0],
   ];
+  symbol = '';
+  value: number;
 
-  pressOperatorsKeypad(event) {
-    if (this.num1 === '') {
-      return;
-    }
-
-    this.symbol = event;
-  }
-
-  pressNumericKeypad(event) {
+  clear() {
+    this.num1 = '';
+    this.num2 = '';
+    this.symbol = '';
     this.value = undefined;
-    if (this.symbol === '') {
-      this.num1 += event; 
-
-      return;
-    }
-
-    if (this.symbol !== '') {
-      this.num2 += event;
-
-      return;
-    }
   }
 
-  result() {
+  getResult() {
     if (this.num1 !== '' && this.num2 !== '') {
       switch (this.symbol) {
         case '+':
@@ -69,10 +53,25 @@ export class HomePage {
     this.symbol = '';
   }
 
-  clear() {
-    this.num1 = '';
-    this.num2 = '';
-    this.symbol = '';
+  pressNumericKeypad(event) {
     this.value = undefined;
+    if (this.symbol === '') {
+      this.num1 += event;
+
+      return;
+    }
+
+    if (this.symbol !== '') {
+      this.num2 += event;
+
+      return;
+    }
+  }
+  pressOperatorKeypad(event) {
+    if (this.num1 === '') {
+      return;
+    }
+
+    this.symbol = event;
   }
 }

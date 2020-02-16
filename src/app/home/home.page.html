@@ -44,14 +44,14 @@
                 </ion-button>
                 <ion-button 
                   class="symbol"
-                  (click)= "result()"
+                  (click)= "getResult()"
                 > = 
                 </ion-button>
               </div>
             </div>
           </div>
           <div class="symbol-keypad">
-            <app-operators (sendOperators) = "pressOperatorsKeypad($event)" ></app-operators>
+            <app-operators (sendOperators) = "pressOperatorKeypad($event)" ></app-operators>
           </div>
         </div>
       </div>
